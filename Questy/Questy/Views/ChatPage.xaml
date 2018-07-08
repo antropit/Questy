@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Questy.ChatPage"
+			 Title="Ask your question">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, WinPhone, Windows" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+        <Label x:Name="Output" Text="To user Guest: Wellcome!" VerticalOptions="FillAndExpand" VerticalTextAlignment="End"/>
+        <Entry x:Name="Input" Text="" />
+        <Button x:Name="SendButton" Text="Send" HorizontalOptions="FillAndExpand"  Clicked="SendItem_Clicked" BorderWidth="0" BackgroundColor="{StaticResource Accent}"/>
+    </StackLayout>
+</ContentPage>

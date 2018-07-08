@@ -23,7 +23,7 @@ namespace Questy
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(item.Page);
 
             // Manually deselect item
             ItemsListView.SelectedItem = null;

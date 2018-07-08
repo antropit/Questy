@@ -15,16 +15,16 @@ namespace Questy
             items = new List<Item>();
             var mockItems = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Create new Quest", Description="Under construction. Be available till the end of 2018." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Join the Quest", Description="Under construction. Be available till the end of 2018." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Create your avatar", Description="Create your avatar with your cam...", Page = new CameraPage() },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Ask your question", Description="Send your question to developer...", Page = new ChatPage() },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "About", Description="", Page = new AboutPage() },
             };
 
             foreach (var item in mockItems)
             {
+                if (item.Page == null) item.Page = new ItemDetailPage(new ItemDetailViewModel(item));
                 items.Add(item);
             }
         }

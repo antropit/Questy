@@ -8,40 +8,22 @@ namespace Questy
     {
         public MainPage()
         {
-            Page itemsPage, aboutPage = null;
+            Page itemsPage = null;
 
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    itemsPage = new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new NavigationPage(new AboutPage())
-                    {
-                        Title = "About"
-                    };
+                    itemsPage = new NavigationPage(new ItemsPage());
                     itemsPage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
                     break;
                 default:
-                    itemsPage = new ItemsPage()
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
+                    itemsPage = new ItemsPage();
                     break;
             }
 
             Children.Add(itemsPage);
-            Children.Add(aboutPage);
 
-            Title = Children[0].Title;
+            Title = "Questification";
         }
 
         protected override void OnCurrentPageChanged()

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:Questy;assembly=Questy"
+             xmlns:vm="clr-namespace:Questy;"
+             x:Class="Questy.AvatarPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, WinPhone, Windows" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ScrollView>
+        <StackLayout>
+        <Label x:Name="ImagePath" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+        <Image x:Name="AvatarImage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image.Source>
+                <FileImageSource BindingContext="{x:Reference ImagePath}" File="{Binding Text}"/>
+            </Image.Source>
+        </Image>
+        <Button x:Name ="FinishButton" Text="Set your avatar...." Clicked="Button_Clicked"
+            VerticalOptions="EndAndExpand" 
+            HorizontalOptions="FillAndExpand" BorderWidth="0" BackgroundColor="{StaticResource Accent}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
